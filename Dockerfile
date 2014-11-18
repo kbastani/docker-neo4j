@@ -4,7 +4,7 @@
 FROM       dockerfile/ubuntu
 MAINTAINER K.B. Name <kb@socialmoon.com>
 
-# Install Java.
+# Install Java 8.
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
@@ -46,8 +46,9 @@ COPY sbin/bootstrap.sh /etc/bootstrap.sh
 RUN chown root:root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
-# Expose the Neo4j browser to the host OS on port 7474
+# Expose the Neo4j browser to the host OS on port 7474 and 1337
 EXPOSE 7474
+EXPOSE 1337
 
 # Set the bootstrap script on container run
 ENV BOOTSTRAP /etc/bootstrap.sh
