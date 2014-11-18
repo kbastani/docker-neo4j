@@ -30,7 +30,7 @@ Make sure to replace the `<user>` with the user directory that contains your Neo
 
 Keep in mind that store upgrades are not enabled in the Neo4j configuration by default. The data store version of your Neo4j files on your host machine must be equal to the latest release of Neo4j at the time of building this image.
 
-The `/path/to/neo4j/data` should be the relative path from your host machine's user home directory to `neo4j-community-#.#.#/data` directory that has the `graph.db` database your want to mount to the docker container as a volume.
+The `/path/to/neo4j/data` should be the relative path from your host machine's user home directory to `neo4j-community-#.#.#/data` directory that has the `graph.db` database you want to mount to the docker container as a volume.
 
 ## boot2docker
 
