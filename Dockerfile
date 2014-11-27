@@ -41,6 +41,15 @@ RUN cat neo4j-server.properties | sed "s/#org.neo4j.server.webserver.address/org
 # To run app container: $ docker run -d -P --name neo4j -v /neo4j/neo4j-community-2.1.5/data:/opt/data kbastani/docker-neo4j
 RUN cat neo4j-server.properties | sed "s/org.neo4j.server.database.location=data\/graph.db/org.neo4j.server.database.location=\/opt\/data\/graph.db/g" > neo4j-server.properties.open && mv neo4j-server.properties.open neo4j-server.properties
 
+# Register graphify and mazerunner plugin
+RUN cat neo4j-server.properties | sed "s/#org.neo4j.server.thirdparty_jaxrs_classes=org.neo4j.examples.server.unmanaged=\/examples\/unmanaged/org.neo4j.server.thirdparty_jaxrs_classes=extension=\/service\/mazerunner/g" > neo4j-server.properties.open && mv neo4j-server.properties.open neo4j-server.properties
+
+# Copy plugins
+COPY plugins /var/lib/neo4j/plugins
+
+# Copy configurations
+COPY conf/neo4j /var/lib/neo4j/conf
+
 # Copy the bootstrap shell script and set permissions
 COPY sbin/bootstrap.sh /etc/bootstrap.sh
 RUN chown root:root /etc/bootstrap.sh
