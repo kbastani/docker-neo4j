@@ -1,6 +1,10 @@
-# Neo4j Community Server Docker Image
+# Neo4j Community Edition 2.1.6
 
-This repository contains a Docker image of the latest version of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
+This repository contains a Docker image of the latest version (2.1.6) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
+
+# What is Neo4j?
+
+Sponsored by Neo Technology, Neo4j is an open-source NoSQL graph database implemented in Java and Scala. With development starting in 2003, it has been publicly available since 2007. The source code and issue tracking are available on GitHub, with support readily available on Stack Overflow and the Neo4j Google group. Limited only by hardware, Neo4j is used today by hundreds of thousands of users in almost all industries. Use cases include matchmaking, network management, software analytics, scientific research, routing, organizational and project management, recommendations, social networks, and more.
 
 # Build Docker Image
 
