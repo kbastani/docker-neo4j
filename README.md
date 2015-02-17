@@ -1,6 +1,6 @@
-# Neo4j Community Edition 2.1.6
+# Neo4j Community Edition 2.1.7
 
-This repository contains a Docker image of the latest version (2.1.6) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
+This repository contains a Docker image of the latest version (2.1.7) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
 
 # What is Neo4j?
 
