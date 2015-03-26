@@ -1,6 +1,6 @@
-# Neo4j Community Edition 2.1.7
+# Neo4j Community Edition 2.2.0
 
-This repository contains a Docker image of the latest version (2.1.7) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
+This repository contains a Docker image of the latest version (2.2.0) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
 
 # What is Neo4j?
 
@@ -27,7 +27,7 @@ docker pull kbastani/docker-neo4j
 To run the Neo4j image inside a container after either building it or pulling it, run the following docker command.
 
 ```
-docker run -d -P -v /Users/<user>/path/to/neo4j/data:/opt/data --name graphdb kbastani/docker-neo4j
+docker run -d -p 7474:7474 -v /Users/<user>/path/to/neo4j/data:/opt/data --name graphdb kbastani/docker-neo4j
 ```
 
 Make sure to replace the `<user>` with the user directory that contains your Neo4j `graph.db` data store files.
