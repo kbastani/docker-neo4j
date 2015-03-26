@@ -11,7 +11,7 @@ RUN wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
     apt-get update ; apt-get install neo4j -y
 
-WORKDIR /etc/neo4j
+WORKDIR /var/lib/neo4j
 
 # Copy graph analytics plugin
 COPY plugins /var/lib/neo4j/plugins
@@ -27,6 +27,7 @@ RUN chown root:root /etc/bootstrap.sh && \
 # Customize configurations
 RUN apt-get clean && \
     sed -i "s|data/graph.db|/opt/data/graph.db|g" /var/lib/neo4j/conf/neo4j-server.properties && \
+    sed -i "s|dbms.security.auth_enabled=true|dbms.security.auth_enabled=false|g" /var/lib/neo4j/conf/neo4j-server.properties && \
     sed -i "s|#org.neo4j.server.webserver.address|org.neo4j.server.webserver.address|g" /var/lib/neo4j/conf/neo4j-server.properties && \
     sed -i "s|#org.neo4j.server.thirdparty_jaxrs_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged|org.neo4j.server.thirdparty_jaxrs_classes=extension=/service|g" /var/lib/neo4j/conf/neo4j-server.properties
 
