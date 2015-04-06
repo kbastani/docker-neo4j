@@ -35,6 +35,9 @@ RUN apt-get clean && \
 EXPOSE 7474
 EXPOSE 1337
 
+# Mount a volume for persistent data
+VOLUME /opt/data
+
 # Set the bootstrap script on container run
 ENV BOOTSTRAP /etc/bootstrap.sh
 CMD ["/etc/bootstrap.sh", "-d"]
