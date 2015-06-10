@@ -1,7 +1,7 @@
 #
 # Dockerizing Neo4j graph database (http://www.github.com/kbastani/docker-neo4j)
 #
-FROM       dockerfile/java:oracle-java8
+FROM       java:openjdk-8-jdk
 MAINTAINER K.B. Name <kb@socialmoon.com>
 
 ENV HDFS_HOST hdfs://hdfs:9000
