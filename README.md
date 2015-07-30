@@ -1,6 +1,6 @@
-# Neo4j Community Edition 2.2.1
+# Neo4j Community Edition 2.2.3
 
-This repository contains a Docker image of the latest version (2.2.1) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
+This repository contains a Docker image of the latest version (2.2.3) of the [Neo4j community server](http://www.neo4j.com/download). This Docker image of Neo4j provides instructions on how to map a Docker data volume to an already existing `data/graph.db` store file located on your host machine.
 
 # What is Neo4j?
 
@@ -77,4 +77,21 @@ The Neo4j server container is now accessible on your host machine with the follo
 
 ```
 http://graphdb:7474/browser
+```
+
+### Alternative approach for Mac OS X: Use boot2docker ip
+
+If you don't want to set up a route, you can just use the boot2docker ip to connect to the container.
+
+```bash
+boot2docker ip  # usually returns 192.168.59.103
+```
+
+The container can be reached from the host via the IP above. Try to access neo4j via your browser `http://192.168.59.103:7474` or via `curl`
+```bash
+$ curl 192.168.59.103:7474
+{
+  "management" : "http://172.17.0.16:7474/db/manage/",
+  "data" : "http://172.17.0.16:7474/db/data/"
+}%
 ```
