@@ -6,10 +6,16 @@ MAINTAINER K.B. Name <kb@socialmoon.com>
 
 ENV HDFS_HOST hdfs://hdfs:9000
 
+ENV NEO4j_VERSION community-2.2.3
+#ENV NEO4j_VERSION enterprise-2.2.3
+
 # Install Neo4j
-RUN wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
-    echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
-    apt-get update ; apt-get install neo4j -y
+RUN apt-get update && \
+    apt-get install -y wget
+RUN wget -q -O /tmp/neo4j-$NEO4j_VERSION-unix.tar.gz http://dist.neo4j.org/neo4j-$NEO4j_VERSION-unix.tar.gz && \
+    tar -zxf /tmp/neo4j-$NEO4j_VERSION-unix.tar.gz -C /var/lib && \
+    ln -s /var/lib/neo4j-$NEO4j_VERSION /var/lib/neo4j && \
+    wget -q -O /var/lib/neo4j/lib/gson-2.2.4.jar http://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
 
 WORKDIR /var/lib/neo4j
 
