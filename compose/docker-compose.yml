@@ -1,0 +1,13 @@
+neo4j:
+  image: neo4j:3.5.9
+  ports:
+   - "7474:7474"
+   - "7687:7687"
+   - "1337:1337"
+  volumes:
+   - /app/plugins:/plugins
+   - /app/conf/neo4j:/var/lib/neo4j/conf
+   - /var/run/docker.sock:/var/run/docker.sock
+  environment:
+   - NEO4J_AUTH=none
+   - HDFS_HOST=hdfs://hdfs:9000
