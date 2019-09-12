@@ -14,11 +14,11 @@ EXPOSE 7474
 EXPOSE 7687
 EXPOSE 1337
 
-WORKDIR /var/lib/neo4j
-
 COPY sbin/bootstrap.sh /etc/bootstrap.sh
 RUN chown root:root /etc/bootstrap.sh && \
     chmod 777 /etc/bootstrap.sh
+
+RUN mkdir /import
 
 # Mount a volume for persistent data
 VOLUME /opt/data
